@@ -1,5 +1,6 @@
 import { images } from "@/constants/images";
 import { colors } from "@/constants/theme";
+import { router } from "expo-router";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -35,11 +36,14 @@ export default function Onboarding() {
 
         {/* Get Started button */}
         <TouchableOpacity
-          style={styles.getStartedBtn}
-          // onPress={() => router.push("/(auth)/onboarding")}
+          className="w-full h-14 rounded-full bg-[#5C4BFF] items-center justify-center mt-10"
+          onPress={() => router.push("/(auth)/sign-up")}
           activeOpacity={0.85}
         >
-          <Text className="text-white text-[17px] font-poppins-semibold" style={styles.btnText}>
+          <Text
+            className="text-white text-[17px] font-poppins-semibold"
+            style={styles.btnText}
+          >
             Get Started
           </Text>
         </TouchableOpacity>
@@ -57,15 +61,6 @@ const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
     backgroundColor: colors.neutral.background,
-  },
-  getStartedBtn: {
-    width: "100%",
-    height: 58,
-    borderRadius: 50,
-    backgroundColor: colors.brand.deepPurple,
-    alignItems: "center",
-    justifyContent: "center",
-    marginTop: 40,
   },
   btnText: {
     includeFontPadding: false,
